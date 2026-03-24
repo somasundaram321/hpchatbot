@@ -1,0 +1,61 @@
+RULE 1: Always use schema-qualified table names in the format "<schema>.table_name".
+RULE 2: Do not use "SELECT *"; explicitly list the required columns.
+RULE 3: Never filter data using tenant_id; tenant isolation is handled by schema.
+RULE 4: When filtering by project title, perform case-insensitive matching using ILIKE.
+RULE 5: Use LIMIT 50 by default unless a different limit is explicitly requested.
+RULE 6: Avoid using subqueries unless necessary for filtering or aggregation.
+RULE 7: When joining tables, always specify join conditions explicitly to prevent Cartesian products.
+RULE 8: Do not delete records directly; use an update flag to mark them inactive.
+RULE 9: Use COALESCE to handle NULL values in aggregate queries.
+RULE 10: When retrieving dates, return them in ISO 8601 format (YYYY-MM-DD).
+RULE 11: Always filter out soft-deleted records where applicable.
+RULE 12: Use ORDER BY only on indexed columns to optimize performance.
+RULE 13: When counting records, use COUNT(*) instead of COUNT(column_name) unless filtering nulls.
+RULE 14: For performance, use EXISTS instead of IN when checking related data.
+RULE 15: Never expose internal IDs or primary keys unless explicitly requested.
+RULE 16: When grouping data, ensure the SELECT clause only contains grouped or aggregated columns.
+RULE 17: Always apply security filters before any aggregation.
+RULE 18: Avoid returning sensitive fields like passwords, tokens, or API keys.
+RULE 19: When retrieving comments or text fields, strip HTML tags before returning.
+RULE 20: Ensure SQL queries are safe from injection by using parameterized queries.
+
+Table Name	Possible User-Friendly Names / Synonyms
+activity_log	Activity Log, History, Audit Log, Change Log
+attachment	Attachments, Files, Documents, Uploaded Files
+comments	Comments, Notes, Feedback, Discussions
+content	Content, Pages, Articles, Wiki Entries
+custom_fields	Custom Fields, Extra Fields, User-Defined Fields
+email_configuration	Email Settings, Mail Config, Notification Settings
+epic	Epics, Large Tasks, Major Features, Big Stories
+form_category	Form Categories, Form Groups, Form Types
+form_config	Form Configuration, Form Settings, Form Setup
+form_field	Form Fields, Input Fields, Form Elements
+invitations	Invitations, Invites, Join Requests
+issue	Issues, Tickets, Tasks, Work Items, Bugs
+issue_field_value	Issue Field Values, Ticket Field Values
+issue_sla	Issue SLA, Ticket SLA, Resolution Time Targets
+issue_status	Issue Status, Ticket Status, Task Status
+options	Options, Choices, Dropdown Items
+pages	Pages, Documents, Wiki Pages
+penned_attachments	Draft Attachments, Unsubmitted Files
+penned_comments	Draft Comments, Pending Notes
+penned_configs	Draft Configs, Pending Settings
+penned_tags	Draft Tags, Pending Labels
+permissions	Permissions, Access Rights, Privileges
+priority	Priority, Importance, Urgency Level
+project	Projects, Workspaces, Programs
+project_category	Project Categories, Project Types
+project_configs	Project Configurations, Project Settings
+project_status	Project Status, Project Phases
+query_history	Query History, Search History, Previous Queries
+request_type	Request Types, Service Types, Task Categories
+request_type_field	Request Type Fields, Service Form Fields
+request_type_status	Request Type Status, Service Request Status
+role_permissions	Role Permissions, Role Access Rights
+roles	Roles, User Roles, Job Titles
+scheduler_execution	Scheduler Runs, Scheduled Jobs, Task Schedules
+sla_policy	SLA Policy, Service Level Agreement Rules
+spaces	Spaces, Teams, Groups, Work Areas
+sprint	Sprints, Iterations, Timeboxes
+status	Status, State, Condition
+template	Templates, Blueprints, Predefined Forms
